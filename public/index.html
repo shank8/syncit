@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>DaemonDeveloper</title>
+		<link href='http://fonts.googleapis.com/css?family=Dosis:400,600,800' rel='stylesheet' type='text/css'>
+
+
+	<style>
+		body, html {
+			margin:0;
+			padding:0;
+			background:#fff;
+			font-family:verdana;
+			color:#3DEB94;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin:0;
+			padding:0;
+			font-family: 'Dosis', sans-serif;
+			color:inherit;
+		}
+		nav {
+				position:relative;
+				left:0;
+				top:0;
+				background:#fff;
+				width:100%;
+				min-width: 960px;
+		}
+		a {
+			text-decoration: none;
+		}
+		#app {
+			min-width: 960px;
+		}
+
+		#nav-wrap {
+			list-style: none;
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		.nav-item {
+			display:inline-block;
+			
+
+		}
+		.nav-item > a {
+			text-decoration: none;
+			text-transform: uppercase;
+			color:#3DEB94;
+			font-size:22px;
+	 		font-family: 'Dosis', sans-serif;
+			padding:15px 25px;
+			display:inline-block;
+
+		}
+		.nav-item > a:hover {
+			color:#fff;
+			background:#3DEB94;
+			cursor:pointer;
+		}
+		
+
+		#banner {
+			width:100%;
+			text-align: left;
+			background:#3DEB94;
+			color:#fff;
+		}
+		#banner > h1 {
+			font-size:72px;
+			padding-left:50px;
+			line-height:150px;
+			font-weight:400;
+			display:inline;
+		}
+		#banner > h2 {
+			padding-left:200px;
+			line-height: 150px;
+			display:inline;
+			font-weight: 600;
+			letter-spacing: 1.25px;
+		}
+
+
+		#step-list {
+			width:100%;
+			position:relative;
+		}
+		.step {
+			width:100%;
+			color:#fff;
+		}
+		.step:nth-child(odd) {
+			background:#3DEB94;
+			color:#fff;
+		}
+		.step:nth-child(even){
+			background:#fff;
+			color:#3DEB94;
+		}
+
+		.step-text {
+			text-align: center;
+			line-height: 350px;
+			font-size:60px;
+			font-weight: 400;
+
+		}
+		.step-start {
+			display:block;
+			margin:100px auto;
+			font-size:60px;
+			background-color:#fff;
+			color:#3DEB94;
+			border:4px solid #3DEB94;
+			padding:25px;
+			border-radius:25px;
+			-webkit-transition:background-color 1s;
+			-webkit-transition:color 1s;
+
+		}
+		.step-start:hover {
+			background-color:#3DEB94;
+			color:#fff;
+			border:4px solid #fff;
+		}
+		#sync-link {
+			padding:35px 50px;
+			background:#DEDEDE;
+			margin:0 auto;
+			border-radius: 12px;
+	
+			-moz-box-shadow:   inset 0 0 15px #adadad;
+  			 -webkit-box-shadow: inset 0 0 15px #adadad;
+  			 box-shadow:         inset 0 0 15px #adadad;
+  			 color:#adadad;
+		}
+
+		.view {
+			background:#fff;
+			color:#3DEB94;
+			width:960px;
+			position: relative;
+			margin:0 auto;
+		}
+		.xlarge-text {
+			font-size:52px;
+			font-weight: 400;
+			padding:62px 0;
+		}
+		.large-text {
+			font-size: 42px;
+			font-weight: 400;
+			padding:50px 0;
+		}
+		.med-text {
+			font-size:32px;
+			font-weight: 400;
+			padding:35px 0;
+		}
+		.center {
+			text-align: center;
+		}
+		.active {
+			color:#fff !important;
+			background:#3DEB94;
+		}
+		.invisible {
+			opacity: 0;
+			transition: opacity 1s;
+		}
+		.success {
+			color:green;
+		}
+		.failure {
+			color:red;
+		}
+
+
+		.input {
+			padding:12px;
+			font-size:22px;
+			border-radius:8px;
+			border: 3px solid #3DEB94;
+		}
+		input:focus, button:focus {
+			outline:none;
+		}
+		.sync-btn {
+			padding:12px;
+			border:3px solid #3DEB94;
+			font-size:22px;
+			background:#fff;
+			color:#3DEB94;
+			border-radius:8px;
+		}
+
+		#identifier {
+			margin-bottom:150px;
+		}
+	</style>
+	</head>
+	<body ng-app="syncIt">
+		<section id="banner">
+			<h1>sync.it</h1>
+			<h2>Android contact imports made easy from anywhere!</h2>
+		</section>
+		<nav>
+			<ul id="nav-wrap">
+				<li class="nav-item"><a href="/">Home</a></li>
+				<li class="nav-item"><a href="/begin">Begin</a></li>
+				<li class="nav-item"><a href="/about">About</a></li>
+			</ul>
+		</nav>
+		<section id="app" ng-view>
+			
+		</section>
+
+
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="https://code.angularjs.org/1.3.0-beta.9/angular.min.js"></script>
+			<script src="https://code.angularjs.org/1.3.0-beta.9/angular-route.js"></script>
+			<script>
+				$(document).ready(function(){
+					$('.nav-item').click(function(){
+						$('.nav-item > a').removeClass('active');
+						$(this).children('a').addClass('active');
+					})
+				})
+			</script>
+
+			<script src="/content/js/app.js" type="text/javascript"></script>
+			<script src="/content/js/routes.js" type="text/javascript"></script>
+			<script src="/content/js/controllers.js" type="text/javascript"></script>
+
+	</body>
+</html>

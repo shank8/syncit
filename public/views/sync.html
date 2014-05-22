@@ -1,0 +1,23 @@
+<section id="sync" class="view" ng-controller="syncCtrl">
+	<h1 class="xlarge-text">Lets Getting Started!</h1>
+
+
+	<div id="identifier">
+		<h1 class="med-text">Create a unique name to quickly identify your SyncLink</h1>
+		<form name="idForm">
+		<input class="input" name="name" ng-model="identifier" placeholder="Enter unique name" ng-required="true" ng-minlength="6"/>
+		<button class="sync-btn" ng-click="isAvailable(identifier)">Check</button>
+		<span id="availableStatus" class="auth invisible">{{status}}</span>
+		<span ng-show="idForm.name.$error.minlength">Name is too short!</span>
+		</form>
+	</div>
+
+	<div ng-show="isReady">
+	<div id="sync-link">
+		<h1 class="med-text center">{{synclink ? synclink : "Complete the above"}}</h1>
+	</div>
+
+	<h1 class="med-text center">Share the SyncLink above with all of your friends and family</h1>
+	</div>
+</section>
+
